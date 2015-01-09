@@ -2,11 +2,22 @@ Attribute VB_Name = "DeleteNumEN"
 Option Explicit
 
 Public Sub íióéî‘çÜçÌèúEN()
-    With ActiveDocument.Range().Find
-        .ClearFormatting
-        .Text = "\[[0-9]*\][^11^13]"
-        .Replacement.Text = ""
-        .Forward = True
+    Dim num: num = "\[[0-9]{4}\]"
+    Dim space: space = "[ ^t]{1,10}"
+    Dim r: r = "[^11^13]"
+    
+    Call ReplaceToNull(space & num & space & r)
+    Call ReplaceToNull(space & num & r)
+    Call ReplaceToNull(num & space & r)
+    Call ReplaceToNull(num & r)
+End Sub
+
+Private Sub ReplaceToNull(before)
+    With ActiveDocument.Range(0, 0).Find
+         .ClearFormatting
+         .Text = before
+         .Replacement.Text = ""
+         .Forward = True
         .Wrap = wdFindStop
         .Format = False
         .MatchCase = False
@@ -16,11 +27,7 @@ Public Sub íióéî‘çÜçÌèúEN()
         .MatchSoundsLike = False
         .MatchWildcards = True
         .MatchFuzzy = False
-        Do While .Execute = True
-            With .parent
-                .Delete
-            End With
-        Loop
+         .Execute Replace:=wdReplaceAll
     End With
 End Sub
 
