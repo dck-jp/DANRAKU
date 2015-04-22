@@ -27,14 +27,14 @@ Private Sub AddParagraphMarker()
     ' 【化,数,表,（,［ が現れる行の上に＠追加
     Dim userMarkers: userMarkers = Array("（", "［", "【化", "【数", "【表")
     Dim userMarker: For Each userMarker In userMarkers
-        Call ReplaceX("([^11^13])" & _
+        Call ReplaceX("[!＠]([^11^13])" & _
                       "([　 ]{1,10}" & userMarker & ")", _
  _
                       "\1" & _
-                      userMarker & "\1" _
+                      paragraphMarker & "\1" _
                       & "\2")
     
-        Call ReplaceX("([^11^13])" & _
+        Call ReplaceX("[!＠]([^11^13])" & _
                       "(" & userMarker & ")", _
  _
                       "\1" & _
