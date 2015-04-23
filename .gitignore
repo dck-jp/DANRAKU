@@ -13,9 +13,13 @@
 x64/
 build/
 CreateZip/[Bb]in/
+CreateZip/bin/Debug/
 CreateZip/obj/*
 CreateZip/obj/Debug/*
 *.cache
+*.exe
+*.exe.config
+*.exe.manifest
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/
