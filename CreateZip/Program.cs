@@ -12,13 +12,21 @@ namespace CreateZip
     {
         static void Main(string[] args)
         {
-            var destFolder = "bin";
-            var items = new List<string>() { "DANRAKU.dotm", "readme.txt", "Setup_WordAddin.vbs" };
-            var zipFileName = "DANRAKU.zip";
+            try
+            {
+                var destFolder = "bin";
+                var items = new List<string>() { "DANRAKU.dotm", "readme.txt", "Setup_WordAddin.vbs" };
+                var zipFileName = "DANRAKU.zip";
 
-            Directory.CreateDirectory(destFolder);
-            items.ForEach(item => File.Copy(item, destFolder, true));
-            ZipFile.CreateFromDirectory(destFolder, zipFileName);
+                Directory.CreateDirectory(destFolder);
+                items.ForEach(item => File.Copy(item, destFolder + @"\" + item, true));
+                ZipFile.CreateFromDirectory(destFolder, zipFileName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                Console.Read();
+            }
         }
     }
 }
