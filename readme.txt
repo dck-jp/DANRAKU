@@ -1,5 +1,5 @@
 =====================================================
- DANRAKU Ver.1.2.0
+ DANRAKU Ver.1.2.1
  
      Copyright(C) 2012-2015 by D*isuke YAMAKWA
         homepage: http://www.clockahead.com/

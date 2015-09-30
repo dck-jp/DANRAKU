@@ -25,12 +25,12 @@ Public Sub 段落番号など振り直しJP()
     Call RenumberingParagraph
 
     'Call ReplaceAll("＊", "【請求項０】") '＊の置換機能が不要な場合はこの行を削除
-    Call Renumbering("請求項")
+    'Call Renumbering("請求項")
     
-    Call Renumbering("図")
-    Call Renumbering("化")
-    Call Renumbering("数")
-    Call Renumbering("表")
+    'Call Renumbering("図")
+    'Call Renumbering("化")
+    'Call Renumbering("数")
+    'Call Renumbering("表")
 End Sub
 
 Private Sub ReplaceAll(before As String, after As String)
